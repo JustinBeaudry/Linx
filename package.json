@@ -1,0 +1,34 @@
+{
+  "name": "Linx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-bootstrap": "^2.2.0",
+    "bootstrap": "^3.3.7",
+    "bunyan": "^1.8.5",
+    "font-awesome": "^4.7.0",
+    "glob": "^7.1.1",
+    "lodash": "^4.17.2",
+    "parse5": "^2.2.3",
+    "shelljs": "^0.7.5"
+  },
+  "devDependencies": {
+    "nwjs-builder": "1.13.1"
+  },
+  "window": {
+    "title": "Linx",
+    "icon": "icon.png",
+    "toolbar": true,
+    "min_width": 800,
+    "min_height": 600,
+    "width": 1200,
+    "height": 800,
+    "chromium-args": "--enable-thread-compositing"
+  }
+}

@@ -1,0 +1,40 @@
+<section class="app" ng-if="!ctrl.loading">
+  <linx-header></linx-header>
+  <section class="row">
+    <pre>{{ ctrl.loading | json }}</pre>
+    <div class="col-xs-12">
+      <form class="form-horizontal" ng-submit="ctrl.submit()">
+        <h1>Add Links</h1>
+        <p>Enter a web address: <i>(click ADD or press ENTER)</i></p>
+        <div class="form-group">
+          <div class="col-xs-10">
+            <input class="form-control" type="url" placeholder="Web Address" ng-model="ctrl.url" uib-typeahead="url for url in ctrl.settings.urls | filter: $viewValue" >
+          </div>
+          <div class="col-xs-2">
+            <button type="submit" class="btn btn-success" ng-disabled="ctrl.submitted"><i class="fa fa-plus"></i> Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section>
+    <link-list ng-if="ctrl.links.length" links="ctrl.links"></link-list>
+    <div class="bg-warning col-xs-12" ng-if="!ctrl.submitted && ctrl.hasSubmitted && ctrl.links.length === 0 && !ctrl.error">
+      <p class="text-warning">
+        No links found with given Web Address.
+      </p>
+    </div>
+    <div class="bg-danger col-xs-12" ng-if="ctrl.error">
+      <p class="text-danger" ng-bind="ctrl.error"></p>
+    </div>
+  </section>
+  <linx-footer></linx-footer>
+</section>
+<section ng-if="ctrl.loading">
+  <div class="text-center">
+    <img class="logo-img" src="./icon.png">
+    <span class="logo">LINX</span>
+  </div>
+  <pre>{{ ctrl.loading | json }}</pre>
+  <linx-loader></linx-loader>
+</section>
